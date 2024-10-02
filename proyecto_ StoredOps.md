@@ -21,33 +21,19 @@
 
 # Índice
 
-1. [Universidad Nacional del Nordeste](#universidad-nacional-del-nordeste)
-   
-   1.1 [Facultad de Ciencias Exactas Naturales y Agrimensura](#facultad-de-ciencias-exactas-naturales-y-agrimensura)
-   
-   1.2 [Carrera: Licenciatura en Sistemas de Información](#carrera-licenciatura-en-sistemas-de-información)
 
-2. [StoredOps: Procedimientos y funciones almacenadas](#storedops-procedimientos-y-funciones-almacenadas)
-   
-   
-   2.1 [Asignatura: Bases de Datos I (FaCENA-UNNE)](#asignatura-bases-de-datos-i-facena-unne)
-   
-   
-   2.2 [Integrantes](#integrantes)
-   
-   2.3 [Año: 2024](#año-2024)
 
-3. [CAPÍTULO I: INTRODUCCIÓN](#capítulo-i-introducción)
+1. [CAPÍTULO I: INTRODUCCIÓN](#capítulo-i-introducción)
    
-   3.1 [Procedimientos y funciones almacenadas](#procedimientos-y-funciones-almacenadas)
+   1.1 [Procedimientos y funciones almacenadas](#procedimientos-y-funciones-almacenadas)
    
-   3.2 [Problema de Investigación](#problema-de-investigación)
+   1.2 [Problema de Investigación](#problema-de-investigación)
    
-   3.3 [Alcance del proyecto](#alcance-del-proyecto)
+   1.3 [Alcance del proyecto](#alcance-del-proyecto)
    
-   3.4 [Objetivo General](#objetivo-general)
+   1.4 [Objetivo General](#objetivo-general)
    
-   3.5 [Objetivos Específicos](#objetivos-específicos)
+   1.5 [Objetivos Específicos](#objetivos-específicos)
 
 4. [CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS](#capítulo-iv-desarrollo-del-tema--presentación-de-resultados)
 
