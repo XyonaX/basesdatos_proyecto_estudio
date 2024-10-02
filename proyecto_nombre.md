@@ -1,69 +1,55 @@
 # Proyecto de Estudio!
     
-**Estructura del documento principal:**
 
-# PRESENTACIÓN (Título/Nombre Proyecto)
+# StoredOps
+**Procedimientos y funciones almacenadas**
 
 **Asignatura**: Bases de Datos I (FaCENA-UNNE)
 
 **Integrantes**:
- - Sed vel lectus nec lectus placerat laoreet et sed est.
- - Sed ac justo ac mauris porttitor convallis non sit amet felis.
- - In tincidunt augue sed molestie malesuada.
+ - Garcia Brenda
+ - Leguiza Cecilia Agustina
+ - Pinto Espíndola Malen Aymará
+ - Vargas Portillo Jonatan Ezequiel
 
 **Año**: 2024
 
 ## CAPÍTULO I: INTRODUCCIÓN
 
-### Caso de estudio
-
-Maecenas molestie lacus tincidunt, placerat dolor et, ullamcorper erat. Mauris tortor nisl, ultricies ac scelerisque nec, feugiat in nibh. 
-
-### Definición o planteamiento del problema
-
-Pellentesque interdum aliquam magna sit amet rutrum. Nulla aliquam ligula nec quam iaculis dictum. In cursus aliquam cursus. Nullam a sem vel sapien iaculis finibus. Donec aliquam dictum viverra. Etiam ut orci lacus.
-
-## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
-
-**TEMA 1 " ---- "** 
-Ut sed imperdiet risus. Maecenas vestibulum arcu vitae orci pretium pharetra. Suspendisse potenti. Fusce massa libero, fermentum eget elit in, tincidunt fermentum nunc. Cras imperdiet nisl elit, elementum gravida enim accumsan vel. Sed in sapien quis ante consectetur commodo id non nulla. Aenean lacinia, dolor convallis semper mattis, ante orci elementum nunc, eget feugiat risus neque in urna. Ut ut quam nec risus mollis convallis ornare ac odio. Phasellus efficitur posuere nibh, eget tempor augue pellentesque ac. Ut enim sem, imperdiet non est ut, blandit posuere dui. Curabitur at purus orci. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+### Procedimientos y funciones almacenadas
 
 
-**TEMA 2 " ----- "** 
-Ut sed imperdiet risus. Maecenas vestibulum arcu vitae orci pretium pharetra. Suspendisse potenti. Fusce massa libero, fermentum eget elit in, tincidunt fermentum nunc. Cras imperdiet nisl elit, elementum gravida enim accumsan vel. Sed in sapien quis ante consectetur commodo id non nulla. Aenean lacinia, dolor convallis semper mattis, ante orci elementum nunc, eget feugiat risus neque in urna. Ut ut quam nec risus mollis convallis ornare ac odio. Phasellus efficitur posuere nibh, eget tempor augue pellentesque ac. Ut enim sem, imperdiet non est ut, blandit posuere dui. Curabitur at purus orci. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+En este proyecto, abordaremos el uso de procedimientos y funciones almacenadas en bases de datos, centrándonos en cómo estas herramientas optimizan y estructuran la lógica de negocio dentro del propio sistema de gestión de bases de datos (SGBD). Los procedimientos almacenados permiten ejecutar conjuntos de instrucciones SQL de manera eficiente y segura, mientras que las funciones almacenadas proporcionan resultados específicos a partir de parámetros de entrada, mejorando la modularidad y reutilización del código.
+El trabajo se centrará en la implementación de operaciones CRUD (Crear, Leer, Actualizar y Eliminar) para gestionar los datos dentro de la base de datos de manera estructurada, asegurando consistencia y eficiencia. También exploraremos las diferencias entre procedimientos y funciones, y su impacto en el rendimiento del sistema y la facilidad de mantenimiento.
 
-...
 
-## CAPÍTULO III: METODOLOGÍA SEGUIDA 
+### Problema de Investigación
 
-Donec lobortis tincidunt erat, non egestas mi volutpat in. Cras ante purus, luctus sed fringilla non, ullamcorper at eros.
+El problema que aborda este trabajo es la necesidad de una mejor gestión de la información en concesionarias de vehículos, donde se manejan grandes cantidades de datos relacionados con clientes, empleados, vehículos, pedidos y ventas. La gestión manual o a través de sistemas no integrados genera errores, duplicación de datos y dificultades en el acceso a información clave para las operaciones diarias.
+El problema se puede plantear en las siguientes preguntas de investigación:
+-   ¿Cómo diseñar una base de datos eficiente que permita la gestión centralizada de            clientes, empleados, pedidos y ventas?
+-   ¿Cómo aplicar roles y permisos a nivel de usuarios para garantizar la seguridad y           confidencialidad de los datos?
+-   ¿Cómo mejorar el rendimiento de las consultas y transacciones en el sistema mediante la     implementación de índices y optimización de consultas?
 
- **a) Cómo se realizó el Trabajo Práctico**
-Vestibulum rutrum feugiat molestie. Nunc id varius augue. Ut augue mauris, venenatis et lacus ut, mattis blandit urna. Fusce lobortis, quam non vehicula scelerisque, nisi enim ultrices diam, ac tristique libero ex nec orci.
+### Alcance del proyecto
 
- **b) Herramientas (Instrumentos y procedimientos)**
-Donec lobortis tincidunt erat, non egestas mi volutpat in. Cras ante purus, luctus sed fringilla non, ullamcorper at eros. Integer interdum id orci id rutrum. Curabitur facilisis lorem sed metus interdum accumsan. 
+El alcance del trabajo incluye el diseño, implementación y optimización de una base de datos relacional utilizando SQL Server. Se abordarán las áreas esenciales de la concesionaria, tales como la gestión de clientes, empleados, vehículos, pedidos y ventas, y se incluirán mecanismos de seguridad y control de acceso. El sistema no abordará aspectos adicionales como la integración con sistemas externos o la implementación de interfaces de usuario avanzadas. El enfoque principal es la creación de la estructura de base de datos y la eficiencia en la gestión de la información.
 
+### Objetivo General
+
+Desarrollar una base de datos relacional para una concesionaria de vehículos que permita gestionar de manera eficiente las operaciones de la empresa, incluyendo la administración de empleados, clientes, vehículos, pedidos y ventas. El sistema será implementado utilizando SQL Server, aplicando conceptos de roles, permisos, procedimientos almacenados y optimización de consultas.
+
+### Objetivos Específicos
+-   1) Diseñar un modelo de datos que integre todas las entidades relevantes de la concesionaria, tales como clientes, empleados, vehículos, pedidos y facturas.
+-   2) Implementar procedimientos almacenados y funciones para realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre los datos de la concesionaria.
+-   3) Aplicar roles y permisos de usuarios para garantizar la seguridad de los datos, permitiendo el acceso controlado a información confidencial según el perfil del usuario.
+-   4) Optimizar las consultas a través de la creación de índices adecuados que mejoren el rendimiento del sistema y reduzcan los tiempos de respuesta en operaciones complejas.
+-   5) Validar la integridad de los datos mediante la implementación de restricciones y relaciones entre tablas, garantizando la consistencia del modelo.
 
 ## CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
 
 Maecenas molestie lacus tincidunt, placerat dolor et, ullamcorper erat. Mauris tortor nisl, ultricies ac scelerisque nec, feugiat in nibh. Pellentesque interdum aliquam magna sit amet rutrum. 
 
-
-
-### Diagrama conceptual (opcional)
-Ejemplo usando Live Editor https://mermaid.js.org/ (ejemplo opcional)
-```mermaid
-erDiagram
-CUSTOMER  }|..|{  DELIVERY-ADDRESS  : has
-CUSTOMER  ||--o{  ORDER  : places
-CUSTOMER  ||--o{  INVOICE  : "liable for"
-DELIVERY-ADDRESS  ||--o{  ORDER  : receives
-INVOICE  ||--|{  ORDER  : covers
-ORDER  ||--|{  ORDER-ITEM  : includes
-PRODUCT-CATEGORY  ||--|{  PRODUCT  : contains
-PRODUCT  ||--o{  ORDER-ITEM  : "ordered in"
-```
 ### Diagrama relacional
 ![diagrama_relacional](https://github.com/dovillegas/basesdatos_proyecto_estudio/blob/main/doc/image_relational.png)
 
@@ -72,32 +58,6 @@ PRODUCT  ||--o{  ORDER-ITEM  : "ordered in"
 Acceso al documento [PDF](doc/diccionario_datos.pdf) del diccionario de datos.
 
 
-### Desarrollo TEMA 1 "----"
+> Acceder a la siguiente carpeta para la descripción completa del script [scripts](script/script_ddl_proyecto.sql)
 
-Fusce auctor finibus lectus, in aliquam orci fermentum id. Fusce sagittis lacus ante, et sodales eros porta interdum. Donec sed lacus et eros condimentum posuere. 
-
-> Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_1](script/tema01_nombre_tema)
-
-### Desarrollo TEMA 2 "----"
-
-Proin aliquet mauris id ex venenatis, eget fermentum lectus malesuada. Maecenas a purus arcu. Etiam pellentesque tempor dictum. 
-
-> Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_2](script/tema02_nombre_tema)
-
-... 
-
-
-## CAPÍTULO V: CONCLUSIONES
-
-Nunc sollicitudin purus quis ante sodales luctus. Proin a scelerisque libero, vitae pharetra lacus. Nunc finibus, tellus et dictum semper, nisi sem accumsan ligula, et euismod quam ex a tellus. 
-
-
-
-## BIBLIOGRAFÍA DE CONSULTA
-
- 1. List item
- 2. List item
- 3. List item
- 4. List item
- 5. List item
 
