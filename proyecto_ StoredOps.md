@@ -51,7 +51,7 @@ Desarrollar una base de datos relacional para una concesionaria de vehículos qu
 Maecenas molestie lacus tincidunt, placerat dolor et, ullamcorper erat. Mauris tortor nisl, ultricies ac scelerisque nec, feugiat in nibh. Pellentesque interdum aliquam magna sit amet rutrum. 
 
 ### Diagrama relacional
-![diagrama_relacional](https://github.com/dovillegas/basesdatos_proyecto_estudio/blob/main/doc/image_relational.png)
+![diagrama_relacional](https://github.com/XyonaX/basesdatos_proyecto_estudio/blob/main/doc/imagen_relacional.png)
 
 ### Diccionario de datos
 
