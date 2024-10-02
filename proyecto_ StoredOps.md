@@ -1,6 +1,11 @@
 # Proyecto de Estudio!
-    
 
+**Universidad Nacional del Nordeste**
+
+**Facultad de Ciencias Exactas Naturales y Agrimensura** 
+
+**Carrera: Licenciatura en Sistemas de Información** 
+    
 # StoredOps
 **Procedimientos y funciones almacenadas**
 
