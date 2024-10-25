@@ -112,9 +112,7 @@ CREATE TABLE Vehiculos
   CONSTRAINT PK_Vehiculo PRIMARY KEY (id_Vehiculo),
   CONSTRAINT FK_Vehiculos_TipoVehiculo FOREIGN KEY (id_tipoVehiculo) REFERENCES Tipo_Vehiculo(id_tipoVehiculo),
   CONSTRAINT FK_Vehiculos_EstadoVehiculo FOREIGN KEY (id_Estado) REFERENCES Estado_Vehiculo(id_Estado),
-  CONSTRAINT FK_Vehiculos_Condicion FOREIGN KEY (id_Condicion) REFERENCES Condicion(id_Condicion),
-  CONSTRAINT UQ_Vehiculos_PatenteVehiculo UNIQUE (patente_Vehiculo),
-  CONSTRAINT UQ_Vehiculos_codigo0km UNIQUE (codigo_OKM)
+  CONSTRAINT FK_Vehiculos_Condicion FOREIGN KEY (id_Condicion) REFERENCES Condicion(id_Condicion)
 );
 
 CREATE TABLE Pago
