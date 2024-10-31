@@ -1,4 +1,3 @@
--- SCRIPT TEMA “Procedimientos y funciones almacenadas”
 -- DEFINNICIÓN DEL MODELO DE DATOS
 
 CREATE DATABASE StoredOps;
