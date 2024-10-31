@@ -172,7 +172,7 @@ CREATE TABLE Usuario
   password_Usuario VARCHAR(150) NOT NULL,
   CONSTRAINT PK_Usuario PRIMARY KEY (id_Usuario),
   CONSTRAINT FK_Usuario_Empleado FOREIGN KEY (cuil_Empleado) REFERENCES Empleado(cuil_Empleado),
-  CONSTRAINT UQ_Usuario_Empleado UNIQUE (id_Empleado) -- Para asegurar que cada empleado tenga solo un usuario
+  CONSTRAINT UQ_Usuario_Empleado UNIQUE (cuil_Empleado) 
 );
 
 CREATE TABLE Cliente
