@@ -10,8 +10,6 @@ El manejo correcto de permisos garantiza la seguridad y el control de acceUna co
 ## ¿Cómo se configuran los permisos?
 #### SQL Server permite gestionar permisos a dos niveles principales:
 
-SQL Server permite gestionar permisos a dos niveles principales:
-
 **A nivel de usuario**: Permite asignar permisos específicos a usuarios individuales según sus necesidades.
 **A nivel de roles**: Agrupa permisos y los asigna a roles específicos, esto facilita la administración de permisos para grupos grandes de usuarios con necesidades similares. 
 Los usuarios se asignan a estos roles como por ejemplo vendedor, cajero o administrador.
@@ -20,9 +18,11 @@ Los usuarios se asignan a estos roles como por ejemplo vendedor, cajero o admini
 #### Escenario
 En nuestro proyecto que es acerca de una base de datos para una concesionaria, necesitamos configurar permisos para los siguientes empleados:
 
-** *Administrador**: Tiene control total sobre la base de datos (lectura, escritura, creación de tablas, etc.).
-** *Vendedor**: Puede consultar información de vehículos, registrar clientes y realizar pedidos.
-** *Cajero**: Puede gestionar los pagos y generar facturas, pero no puede modificar datos de vehículos ni clientes.
+**Administrador**: Tiene control total sobre la base de datos (lectura, escritura, creación de tablas, etc.).
+
+**Vendedor**: Puede consultar información de vehículos, registrar clientes y realizar pedidos.
+
+**Cajero**: Puede gestionar los pagos y generar facturas, pero no puede modificar datos de vehículos ni clientes.
 
 #### Pasos
 1. Crear los usuarios en la base de datos
@@ -54,11 +54,8 @@ GRANT SELECT ON dbo.Pedido TO Cajero; -- Consultar pedidos
 GRANT INSERT ON dbo.Pago TO Cajero; -- Registrar pagos
 GRANT INSERT ON dbo.Factura TO Cajero; -- Generar facturas
 ```
-3. Probar los permisos asignados
 
-Vendedor: Intenta registrar un nuevo cliente y crear un pedido. También intenta eliminar un vehículo (debe denegarse).
-
-2. Pruebas de acceso
+3. Pruebas de acceso
 
 Administrador: Puede realizar cualquier operación, incluida la creación de tablas y procedimientos.
 ```
