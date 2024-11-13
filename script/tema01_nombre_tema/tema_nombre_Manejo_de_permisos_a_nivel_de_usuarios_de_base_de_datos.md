@@ -54,11 +54,8 @@ GRANT SELECT ON dbo.Pedido TO Cajero; -- Consultar pedidos
 GRANT INSERT ON dbo.Pago TO Cajero; -- Registrar pagos
 GRANT INSERT ON dbo.Factura TO Cajero; -- Generar facturas
 ```
-3. Probar los permisos asignados
 
-Vendedor: Intenta registrar un nuevo cliente y crear un pedido. También intenta eliminar un vehículo (debe denegarse).
-
-2. Pruebas de acceso
+3. Pruebas de acceso
 
 Administrador: Puede realizar cualquier operación, incluida la creación de tablas y procedimientos.
 ```
