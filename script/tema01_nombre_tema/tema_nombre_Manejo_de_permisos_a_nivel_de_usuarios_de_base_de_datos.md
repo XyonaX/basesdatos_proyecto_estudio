@@ -10,8 +10,6 @@ El manejo correcto de permisos garantiza la seguridad y el control de acceUna co
 ## ¿Cómo se configuran los permisos?
 #### SQL Server permite gestionar permisos a dos niveles principales:
 
-SQL Server permite gestionar permisos a dos niveles principales:
-
 **A nivel de usuario**: Permite asignar permisos específicos a usuarios individuales según sus necesidades.
 **A nivel de roles**: Agrupa permisos y los asigna a roles específicos, esto facilita la administración de permisos para grupos grandes de usuarios con necesidades similares. 
 Los usuarios se asignan a estos roles como por ejemplo vendedor, cajero o administrador.
