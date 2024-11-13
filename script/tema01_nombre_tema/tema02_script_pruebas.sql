@@ -53,4 +53,4 @@ VALUES (GETDATE(), 5000, 1);
 
 -- Intentar registrar un cliente (esto debería ser denegado)
 INSERT INTO Cliente (email_Cliente, celular_Cliente, calle_Cliente, num_Calle, piso_Cliente, dpto_Cliente, codigo_PostalCliente, id_Estado_Cliente, id_Localidad)
-VALUES ('otro_cliente@example.com', '0987654321', 'Calle Nueva', 456, 2, 'B', 5678, 1, 1); -- Espera un error de permisos
+VALUES ('cliente1@example.com', '0987654321', 'Calle Nueva', 456, 2, 'B', 5678, 1, 1); -- Espera un error de permisos
