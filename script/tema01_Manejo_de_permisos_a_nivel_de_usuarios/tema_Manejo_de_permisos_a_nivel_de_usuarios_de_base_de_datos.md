@@ -5,7 +5,8 @@ En SQL Server, los permisos son reglas que determinan qué operaciones pueden re
 
 El manejo correcto de permisos garantiza la seguridad y el control de acceUna correcta gestión de permisos garantiza:
 **Seguridad de los datos**: Evita accesos no autorizados.
-**Organización eficiente**: Simplifica la administración de grandes equipos. **Reduciendo el riesgo de modificaciones**: no autorizadas o malintencionadas. 
+**Organización eficiente**: Simplifica la administración de grandes equipos. 
+**Reduciendo el riesgo de modificaciones**: no autorizadas o malintencionadas. 
 
 ## ¿Cómo se configuran los permisos?
 #### SQL Server permite gestionar permisos a dos niveles principales:
