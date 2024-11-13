@@ -56,47 +56,63 @@ GRANT INSERT ON dbo.Factura TO Cajero; -- Generar facturas
 ```
 3. Probar los permisos asignados
 
-Administrador: Debe poder realizar todas las operaciones sin restricciones.
-
 Vendedor: Intenta registrar un nuevo cliente y crear un pedido. También intenta eliminar un vehículo (debe denegarse).
-
-Cajero: Realiza un pago y genera una factura. Intenta registrar un cliente (debe denegarse).
-
-
-### Caso Práctico: Permisos a Nivel de Roles
-Escenario
-Para simplificar la administración, crearemos roles específicos para los empleados y les asignaremos permisos según sus funciones.
-
-#### Pasos
-1. Crear roles y asignar permisos
-```
--- Crear el rol Administrador
-CREATE ROLE Administrador;
-ALTER ROLE Administrador ADD MEMBER Admin; -- Asignar rol al usuario Admin
-
--- Crear el rol Vendedor
-CREATE ROLE Vendedor;
-GRANT SELECT ON dbo.Vehiculos TO Vendedor;
-GRANT INSERT ON dbo.Cliente TO Vendedor;
-GRANT INSERT ON dbo.Pedido TO Vendedor;
-GRANT INSERT ON dbo.Detalle_Pedido TO Vendedor;
-EXEC sp_addrolemember 'Vendedor', 'Vendedor';
-
--- Crear el rol Cajero
-CREATE ROLE Cajero;
-GRANT SELECT ON dbo.Pedido TO Cajero;
-GRANT INSERT ON dbo.Pago TO Cajero;
-GRANT INSERT ON dbo.Factura TO Cajero;
-EXEC sp_addrolemember 'Cajero', 'Cajero';
-```
 
 2. Pruebas de acceso
 
 Administrador: Puede realizar cualquier operación, incluida la creación de tablas y procedimientos.
+```
+USE StoredOps;
+
+-- Crear una nueva tabla (solo el Administrador debería poder hacerlo)
+CREATE TABLE Prueba_Admin (
+    id INT PRIMARY KEY,
+    descripcion VARCHAR(50)
+);
+
+-- Insertar un registro en la tabla Vehiculos
+INSERT INTO Vehiculos (marca_Vehiculo, modelo_Vehiculo, version_Vehiculo, km_Vehiculo, anio_Vehiculo, precio_Vehiculo, id_tipoVehiculo, id_Estado, id_Condicion)
+VALUES ('Toyota', 'Corolla', 'XLE', 15000, '2020-01-01', 20000, 1, 1, 1);
+
+-- Eliminar un vehículo (solo el Administrador debería poder hacerlo)
+DELETE FROM Vehiculos WHERE id_Vehiculo = 100;
+```
 
 Vendedor: Consulta vehículos, registra clientes y genera pedidos. No puede modificar datos de pago.
+```
+USE StoredOps;
+
+-- Consultar información de vehículos
+SELECT * FROM Vehiculos;
+
+-- Registrar un nuevo cliente
+INSERT INTO Cliente (email_Cliente, celular_Cliente, calle_Cliente, num_Calle, piso_Cliente, dpto_Cliente, codigo_PostalCliente, id_Estado_Cliente, id_Localidad)
+VALUES ('cliente@example.com', '1234567890', 'Calle Falsa', 123, 1, 'A', 1234, 1, 1);
+
+-- Crear un nuevo pedido
+INSERT INTO Pedido (cuil_Empleado, num_Factura, id_Cliente)
+VALUES ('20304050607', 1, 1);
+
+-- Intentar eliminar un vehículo (esto debería ser denegado)
+DELETE FROM Vehiculos WHERE id_Vehiculo = 101; -- Espera un error de permisos
+```
 
 Cajero: Genera facturas y gestiona pagos. No puede modificar vehículos ni registrar clientes.
+```
+USE StoredOps;
+
+-- Realizar un pago
+INSERT INTO Pago (descripcion_Pago, importe_Pago, id_TipoPago, id_EstadoPago, num_Factura)
+VALUES ('Pago Inicial', 5000, 1, 1, 1);
+
+-- Generar una factura
+INSERT INTO Factura (fecha_Factura, total_Factura, id_EstadoFactura)
+VALUES (GETDATE(), 5000, 1);
+
+-- Intentar registrar un cliente (esto debería ser denegado)
+INSERT INTO Cliente (email_Cliente, celular_Cliente, calle_Cliente, num_Calle, piso_Cliente, dpto_Cliente, codigo_PostalCliente, id_Estado_Cliente, id_Localidad)
+VALUES ('otro_cliente@example.com', '0987654321', 'Calle Nueva', 456, 2, 'B', 5678, 1, 1); -- Espera un error de permisos
+```
 
 ### Resultados Esperados
 **Administrador**:
