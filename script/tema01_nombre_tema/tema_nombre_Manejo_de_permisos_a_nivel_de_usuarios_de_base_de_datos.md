@@ -20,9 +20,9 @@ Los usuarios se asignan a estos roles como por ejemplo vendedor, cajero o admini
 #### Escenario
 En nuestro proyecto que es acerca de una base de datos para una concesionaria, necesitamos configurar permisos para los siguientes empleados:
 
-** *Administrador**: Tiene control total sobre la base de datos (lectura, escritura, creación de tablas, etc.).
-** *Vendedor**: Puede consultar información de vehículos, registrar clientes y realizar pedidos.
-** *Cajero**: Puede gestionar los pagos y generar facturas, pero no puede modificar datos de vehículos ni clientes.
+** Administrador**: Tiene control total sobre la base de datos (lectura, escritura, creación de tablas, etc.).
+** Vendedor**: Puede consultar información de vehículos, registrar clientes y realizar pedidos.
+** Cajero**: Puede gestionar los pagos y generar facturas, pero no puede modificar datos de vehículos ni clientes.
 
 #### Pasos
 1. Crear los usuarios en la base de datos
