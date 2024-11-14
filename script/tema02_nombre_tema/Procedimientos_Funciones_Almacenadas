@@ -92,3 +92,4 @@ BEGIN
 		SELECT nombre, dbo.fn_calcular_salario_anual(salario) AS salario_anual 		 FROM empleados 
 		WHERE salario > @salario_limite; 
 END;
+
