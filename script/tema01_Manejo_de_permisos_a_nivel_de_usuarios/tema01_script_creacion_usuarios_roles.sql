@@ -40,7 +40,6 @@ CREATE ROLE Vendedor;
 GRANT SELECT ON dbo.Vehiculos TO Vendedor;
 GRANT INSERT ON dbo.Cliente TO Vendedor;
 GRANT INSERT ON dbo.Pedido TO Vendedor;
-GRANT INSERT ON dbo.Detalle_Pedido TO Vendedor;
 EXEC sp_addrolemember 'Vendedor', 'Vendedor';
 
 -- Crear el rol Cajero
