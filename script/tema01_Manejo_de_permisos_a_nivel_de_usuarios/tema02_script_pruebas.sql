@@ -59,3 +59,4 @@ VALUES
 INSERT INTO Cliente (nombre_Cliente, apellido_Cliente, dni_Cliente, cuil_Cliente, fechaNac_Cliente, email_Cliente, celular_Cliente, calle_Cliente, num_Calle, piso_Cliente, dpto_Cliente, codigo_PostalCliente, id_Localidad) 
 VALUES ('Maria', 'Gonzalez', '36517962', '20365179621', '1985-05-05', 'mariagon@cliente.com', '379554321', 'Calle Falsa', 123, 1, 'A', 5001, 2);
 
+
