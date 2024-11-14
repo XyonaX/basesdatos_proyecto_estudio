@@ -47,8 +47,7 @@
 
 ### Procedimientos y funciones almacenadas
 
-En este proyecto, abordaremos el uso de procedimientos y funciones almacenadas en bases de datos, centrándonos en cómo estas herramientas optimizan y estructuran la lógica de negocio dentro del propio sistema de gestión de bases de datos (SGBD). Los procedimientos almacenados permiten ejecutar conjuntos de instrucciones SQL de manera eficiente y segura, mientras que las funciones almacenadas proporcionan resultados específicos a partir de parámetros de entrada, mejorando la modularidad y reutilización del código.
-El trabajo se centrará en la implementación de operaciones CRUD (Crear, Leer, Actualizar y Eliminar) para gestionar los datos dentro de la base de datos de manera estructurada, asegurando consistencia y eficiencia. También exploraremos las diferencias entre procedimientos y funciones, y su impacto en el rendimiento del sistema y la facilidad de mantenimiento.
+La gestión eficiente de la información es esencial para las concesionarias de vehículos, donde se manejan grandes volúmenes de datos relacionados con clientes, empleados, vehículos, pedidos y ventas. La dependencia de procesos manuales o sistemas no integrados genera errores, duplicación de datos y dificultades en el acceso a información clave, afectando la operación diaria. Este Trabajo Práctico propone el diseño e implementación de una base de datos relacional en SQL Server, que permita centralizar y optimizar la administración de la información, garantizando seguridad mediante roles y permisos, mejorando el rendimiento de consultas y transacciones, y asegurando la integridad de los datos. El proyecto busca responder a las necesidades inmediatas de la concesionaria, sentando las bases para una gestión más eficaz y escalable.
 
 ### Problema de Investigación
 
@@ -78,7 +77,7 @@ Desarrollar una base de datos relacional para una concesionaria de vehículos qu
 Maecenas molestie lacus tincidunt, placerat dolor et, ullamcorper erat. Mauris tortor nisl, ultricies ac scelerisque nec, feugiat in nibh. Pellentesque interdum aliquam magna sit amet rutrum. 
 
 ### Diagrama relacional
-![diagrama_relacional](https://github.com/XyonaX/basesdatos_proyecto_estudio/blob/main/doc/esquemarelacional.jpeg)
+![diagrama_relacional](https://github.com/XyonaX/basesdatos_proyecto_estudio/blob/main/doc/esquema_relacional.jpeg)
 
 ### Diccionario de datos
 
