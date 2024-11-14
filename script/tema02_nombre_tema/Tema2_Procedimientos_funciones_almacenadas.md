@@ -1,6 +1,7 @@
 Tema: Procedimientos y funciones almacenadas
 
 ¿Qué es un procedimiento?
+
 Un procedimiento almacenado es un conjunto de instrucciones que se pueden llamar desde otras consultas o desde otros procedimientos almacenados, puede tomar argumentos de entrada y mostrar valores como resultados. 
 Estos pueden ser almacenados en un conjunto de datos de BigQuery (almacén de datos de Google Cloud de bajo coste, multinube, escalable, serverless y totalmente administrado)
 Un procedimiento almacenado puede acceder a los datos o modificarlos en varios conjuntos de datos de varios usuarios, como así también puede contener una consulta de varias instrucciones. Admiten declaraciones de lenguaje de procedimiento, que te permiten realizar variables como definir variables e implementar el flujo de control. Pero, a diferencia de las funciones, los procedimientos almacenados no deben devolver un valor. Por este motivo, los procedimientos no contienen la cláusula RETURNS ni la sentencia RETURN en su cuerpo.
@@ -33,6 +34,7 @@ Ventajas
 	Reducción de errores: Al encapsular la lógica de programación en procedimientos almacenados, se reduce la posibilidad de cometer errores en la aplicación. Los procedimientos almacenados son probados y depurados una vez, y luego pueden ser utilizados por múltiples aplicaciones sin necesidad de modificar el código fuente.
 
 ¿Qué son las funciones almacenadas?
+
 Son rutinas almacenadas, con nombre, definidas por el usuario, que nos permiten procesar y manipular datos, pueden recibir parámetros de entrada y deben devolver algún valor (de un tipo específico previamente definido). Posteriormente, pueden ser usadas invocándolas en una expresión, como cualquier otra función predefinida de MySQL.
 Una función siempre está asociada a una base de datos o esquema. Si no especificamos uno al momento de crearla se utilizará la base de datos por defecto. Para indicar una base de datos, debemos especificarla junto al nombre de la función al momento de crearla:  nombre_bd.nombre_func.
 Para crear una nueva función, debemos utilizar la sentencia CREATE FUNCTION, cuya sintaxis simplificada es la siguiente:
