@@ -11,6 +11,7 @@ Se  admiten declaraciones de lenguaje de procedimiento, que permiten realizar va
 Los procedimientos almacenados en MySQL son secuencias de comandos o bloques de código SQL que se almacenan en el servidor de la base de datos y se ejecutan cuando se invocan. Son una forma de agrupar instrucciones SQL relacionadas en una unidad lógica y reutilizable. Los procedimientos almacenados permiten simplificar la lógica de programación, mejorar el rendimiento y aumentar la seguridad de las bases de datos.
 
 Crea un procedimiento almacenado:
+----------------------------------
 
 CREATE PROCEDURE mostrar_paises
 AS 
@@ -18,7 +19,9 @@ BEGIN
 	SELECT * FROM Pais; 
 END
 
+
 Parámetros en procedimientos almacenados
+---------------------------------------
 
 CREATE PROCEDURE buscar_vehiculo
 	@NombreBuscar VARCHAR(50),
