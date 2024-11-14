@@ -1,4 +1,5 @@
 
+
 # Proyecto de Estudio!
 
 **Universidad Nacional del Nordeste**
@@ -24,14 +25,14 @@
 
 
 
-1. [Capítulo-I:-Introducción](#Capítulo-I:-Introducción)
+1. [Capítulo I: Introducción](#Capítulo-I:-Introducción)
       
-   1.1 [Introducción](#Introducción)
-   1.2 [Alcance del proyecto](#alcance-del-proyecto)
-   1.3 [Objetivo General](#objetivo-general)
-   1.4 [Objetivos Específicos](#objetivos-específicos)
+   1.1 [Introducción](#Introducción) 
+   1.2 [Alcance del proyecto](#alcance-del-proyecto) 
+   1.3 [Objetivo General](#objetivo-general) 
+   1.4 [Objetivos Específicos](#objetivos-específicos) 
    
-2. [Capítulo II Marco Conceptual ](#Capítulo-II-Marco-Conceptual )
+2. [Capítulo II: Marco Conceptual ](#Capítulo-II-Marco-Conceptual )
 3. [Capítulo III: Metodología seguida ](#Capítulo-III:-Metodología-seguida)
 4. [Capítulo IV: Desarrollo de temas / Presentación de resultados](#Capítulo-IV:-Desarrollo-de-temas/-Presentación-de-resultados)
 
@@ -73,7 +74,16 @@ Desarrollar una base de datos relacional para una concesionaria de vehículos qu
 -   5) Validar la integridad de los datos mediante la implementación de restricciones y relaciones entre tablas, garantizando la consistencia del modelo.
 
 ## Capítulo II Marco Conceptual 
-En el ámbito de las bases de datos, la gestión eficiente y segura de la información requiere un entendimiento claro de varios conceptos fundamentales que guían su diseño y operación. A continuación, se presenta un marco conceptual que abarca los temas de manejo de permisos a nivel de usuarios, procedimientos y funciones almacenadas, optimización de consultas mediante índices y manejo de transacciones, incluyendo las transacciones anidadas. Manejo de permisos a nivel de usuarios La administración de permisos en una base de datos implica definir y gestionar los derechos de acceso y las restricciones asignadas a diferentes usuarios o roles. Esto se realiza mediante mecanismos como privilegios (SELECT, INSERT, UPDATE, DELETE) y roles predefinidos o personalizados, que garantizan la protección de los datos frente a accesos no autorizados. Este concepto es fundamental para asegurar la integridad, confidencialidad y disponibilidad de los datos, permitiendo un control granular sobre quién puede realizar acciones específicas en la base de datos. Procedimientos y funciones almacenadas Los procedimientos almacenados y las funciones son bloques de código predefinidos que se ejecutan en el servidor de la base de datos, optimizando el desempeño y la seguridad del sistema. Los procedimientos almacenados suelen utilizarse para ejecutar tareas complejas o recurrentes, mientras que las funciones devuelven un valor específico en función de parámetros de entrada. Ambos elementos promueven la reutilización del código, reducen la carga de la red y garantizan que las reglas de negocio se ejecuten de manera centralizada y consistente. Optimización de consultas a través de índices Los índices son estructuras auxiliares que mejoran la velocidad de acceso a los datos en una base de datos, reduciendo el tiempo de búsqueda para consultas frecuentes. Al crear índices en columnas clave, se optimizan operaciones como búsquedas, filtros y ordenamientos. Sin embargo, un uso excesivo o inapropiado de índices puede afectar el rendimiento en operaciones de escritura, como inserciones o actualizaciones. El diseño adecuado de índices balancea eficiencia y costo computacional. Manejo de transacciones y transacciones anidadas Las transacciones son unidades de trabajo indivisibles que aseguran la consistencia de la base de datos mediante las propiedades ACID (Atomicidad, Consistencia, Aislamiento y Durabilidad). Dentro de este marco, las transacciones anidadas permiten manejar operaciones dependientes entre sí, encapsulando transacciones menores dentro de una principal. Este enfoque es útil en procesos complejos, ya que facilita el manejo de errores y garantiza que los cambios sean reversibles si una parte del proceso falla, sin comprometer la integridad general de los datos. En conjunto, estos conceptos forman la base para un manejo eficiente y seguro de bases de datos modernas, impactando directamente en la calidad del desarrollo de sistemas de información y su alineación con objetivos organizacionales. 
+En el ámbito de las bases de datos, la gestión eficiente y segura de la información requiere un entendimiento claro de varios conceptos fundamentales que guían su diseño y operación. A continuación, se presenta un marco conceptual que abarca los temas de manejo de permisos a nivel de usuarios, procedimientos y funciones almacenadas, optimización de consultas mediante índices y manejo de transacciones, incluyendo las transacciones anidadas. 
+### Manejo de permisos a nivel de usuarios
+La administración de permisos en una base de datos implica definir y gestionar los derechos de acceso y las restricciones asignadas a diferentes usuarios o roles. Esto se realiza mediante mecanismos como privilegios (SELECT, INSERT, UPDATE, DELETE) y roles predefinidos o personalizados, que garantizan la protección de los datos frente a accesos no autorizados. Este concepto es fundamental para asegurar la integridad, confidencialidad y disponibilidad de los datos, permitiendo un control granular sobre quién puede realizar acciones específicas en la base de datos. 
+ ### Procedimientos y funciones almacenadas
+ Los procedimientos almacenados y las funciones son bloques de código predefinidos que se ejecutan en el servidor de la base de datos, optimizando el desempeño y la seguridad del sistema. Los procedimientos almacenados suelen utilizarse para ejecutar tareas complejas o recurrentes, mientras que las funciones devuelven un valor específico en función de parámetros de entrada. Ambos elementos promueven la reutilización del código, reducen la carga de la red y garantizan que las reglas de negocio se ejecuten de manera centralizada y consistente. 
+ ### Optimización de consultas a través de índices 
+ Los índices son estructuras auxiliares que mejoran la velocidad de acceso a los datos en una base de datos, reduciendo el tiempo de búsqueda para consultas frecuentes. Al crear índices en columnas clave, se optimizan operaciones como búsquedas, filtros y ordenamientos. Sin embargo, un uso excesivo o inapropiado de índices puede afectar el rendimiento en operaciones de escritura, como inserciones o actualizaciones. El diseño adecuado de índices balancea eficiencia y costo computacional. 
+ ### Manejo de transacciones y transacciones anidadas 
+ Las transacciones son unidades de trabajo indivisibles que aseguran la consistencia de la base de datos mediante las propiedades ACID (Atomicidad, Consistencia, Aislamiento y Durabilidad). Dentro de este marco, las transacciones anidadas permiten manejar operaciones dependientes entre sí, encapsulando transacciones menores dentro de una principal. Este enfoque es útil en procesos complejos, ya que facilita el manejo de errores y garantiza que los cambios sean reversibles si una parte del proceso falla, sin comprometer la integridad general de los datos. En conjunto, estos conceptos forman la base para un manejo eficiente y seguro de bases de datos modernas, impactando directamente en la calidad del desarrollo de sistemas de información y su alineación con objetivos organizacionales. 
+ 
 ## Capítulo III: Metodología seguida 
 ### Descripción de cómo se realizó el Trabajo Práctico
 Para la realización de este trabajo, se siguieron diversos pasos que permitieron implementar y evaluar conceptos clave de bases de datos en SQL Server, tales como el manejo de permisos a nivel de usuario, el uso de procedimientos y funciones almacenadas, la optimización de consultas a través de índices y el manejo de transacciones. 
