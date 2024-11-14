@@ -23,6 +23,7 @@ END
 
 
 Ventajas 
+
 	Modularidad y reutilización de código: Los procedimientos almacenados permiten agrupar instrucciones SQL relacionadas en una unidad lógica, lo que facilita su reutilización en diferentes partes de una aplicación. 
 
 	Mejor rendimiento: Al ejecutarse en el servidor de la base de datos, los procedimientos almacenados evitan la necesidad de enviar múltiples consultas desde la aplicación cliente. Esto reduce el tráfico de red y mejora el rendimiento general de la aplicación.
@@ -47,9 +48,13 @@ RETURN <valor>;
 
 
 Ventajas de las Funciones
+
 	Reutilización de Código: Al igual que los procedimientos almacenados, las funciones permiten reutilizar lógica de código.
+
 	Encapsulación de Lógica: Puedes encapsular lógica de negocio compleja en funciones, facilitando su comprensión y mantenimiento.
+
 	Facilidad de Uso: Las funciones se pueden utilizar en consultas SELECT, WHERE y en otras funciones, facilitando su integración en diferentes partes de tus consultas.
+
 	Valores Predeterminados: Puedes asignar valores predeterminados a los parámetros de una función, lo que proporciona flexibilidad y control.
 
 Cómo usar una función almacenada
