@@ -10,7 +10,7 @@ USE StoredOps
 ----Crear un procedimiento 
 
 	CREATE PROCEDURE mostrar_paises
-as 
+AS
 BEGIN 
 	SELECT * FROM Pais; 
 END
@@ -22,7 +22,7 @@ EXEC mostrar_paises;
 
 
 CREATE PROCEDURE buscar_vehiculo
-	@NombreBuscar VARCHAR(50),
+    @NombreBuscar VARCHAR(50),
     @Precio DECIMAL(8, 2)
 AS --palabra clave 
 BEGIN 
@@ -35,6 +35,48 @@ EXEC buscar_vehiculo 'Ecosport', 28000;
 
 select * from Vehiculos
 --------------------------------------------------------
+
+CREATE PROCEDURE InsertarPedido
+    @cuil_Empleado  VARCHAR(11),
+    @id_Cliente INT,
+    @id_Vehiculo INT,
+    @id_EstadoPedido INT,
+    @monto_Pedido FLOAT  -- Este parámetro devolverá el monto calculado del pedido
+AS
+BEGIN
+    -- variable que almacena el precio
+    DECLARE @precioVehiculo FLOAT;
+
+    -- Obtenemos el precio del vehículo desde la tabla Vehiculos
+    SELECT @precioVehiculo = precio_Vehiculo
+    FROM Vehiculos
+    WHERE id_Vehiculo = @id_Vehiculo;
+
+    -- Calculamos el monto del pedido -> en este caso es el precio del vehículo
+    SET @monto_Pedido = @precioVehiculo;
+
+    -- Insertamos el nuevo pedido en la tabla Pedido
+    INSERT INTO Pedido (cuil_Empleado , id_Cliente, id_Vehiculo, fecha_Pedido, monto_Pedido, id_EstadoPedido)
+    VALUES (@cuil_Empleado, @id_Cliente, @id_Vehiculo, GETDATE(), @monto_Pedido, @id_EstadoPedido);
+    
+    -- Devolvemos el monto calculado
+    SELECT @monto_Pedido AS MontoTotal;
+END;
+GO
+
+DECLARE @monto FLOAT;
+-- Llamamos al procedimiento almacenado
+EXEC InsertarPedido 
+    @cuil_Empleado = '20123456780', -- CUIL del empleado
+    @id_Cliente = 1,                  -- ID del cliente
+    @id_Vehiculo = 101,               -- ID del vehículo
+    @id_EstadoPedido = 1,             -- Estado del pedido (ej. Pendiente)
+    @monto_Pedido = @monto ;    -- Parámetro de salida para el monto del pedido
+
+-- Mostramos el monto total del pedido
+SELECT @monto AS MontoTotal;
+
+
 
 ---------------- Funciones almacenadas 
 
