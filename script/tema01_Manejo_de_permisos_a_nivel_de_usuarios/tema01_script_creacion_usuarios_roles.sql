@@ -20,7 +20,6 @@ ALTER ROLE db_owner ADD MEMBER Admin;
 GRANT SELECT ON dbo.Vehiculos TO Vendedor; -- Consultar vehículos
 GRANT INSERT ON dbo.Cliente TO Vendedor; -- Registrar clientes
 GRANT INSERT ON dbo.Pedido TO Vendedor; -- Crear pedidos
-GRANT INSERT ON dbo.Detalle_Pedido TO Vendedor; -- Añadir detalles al pedido
 
 -- Asignar permisos al Cajero
 GRANT SELECT ON dbo.Pedido TO Cajero; -- Consultar pedidos
