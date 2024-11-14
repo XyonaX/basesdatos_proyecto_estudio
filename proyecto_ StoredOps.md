@@ -109,6 +109,8 @@ Acceso al documento [PDF](doc/diccionario_datos.pdf) del diccionario de datos.
 
 > Acceder a la siguiente carpeta para el script del lote de datos [scripts](script/script_insert_proyecto.sql)
 
+### Acceso a los temas
+
 > [Manejo de permisos a nivel de usuarios de base de datos](script/tema01_Manejo_de_permisos_a_nivel_de_usuarios/tema_Manejo_de_permisos_a_nivel_de_usuarios_de_base_de_datos.md) 
 
 > [Procedimientos y funciones almacenadas](script/tema02_Procedimientos_y_funciones_almacenadas/Procedimientos_Funciones_Almacenadas.md)
