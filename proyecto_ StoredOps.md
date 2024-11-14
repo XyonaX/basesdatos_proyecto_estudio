@@ -27,13 +27,15 @@
 
 1. [Capítulo I: Introducción](#Capítulo-I:-Introducción)
       
-   1.1 [Introducción](#Introducción) 
-   1.2 [Alcance del proyecto](#alcance-del-proyecto) 
-   1.3 [Objetivo General](#objetivo-general) 
-   1.4 [Objetivos Específicos](#objetivos-específicos) 
+   1.1 [Introducción](#Introducción)  
+   1.2 [Alcance del proyecto](#alcance-del-proyecto)   
+   1.3 [Objetivo General](#objetivo-general)   
+   1.4 [Objetivos Específicos](#objetivos-específicos)   
    
 2. [Capítulo II: Marco Conceptual ](#Capítulo-II-Marco-Conceptual )
+
 3. [Capítulo III: Metodología seguida ](#Capítulo-III:-Metodología-seguida)
+
 4. [Capítulo IV: Desarrollo de temas / Presentación de resultados](#Capítulo-IV:-Desarrollo-de-temas/-Presentación-de-resultados)
 
    4.1 [Diagrama relacional](#diagrama-relacional)
