@@ -95,11 +95,13 @@ WHERE id_tipoVehiculo = @IdTipoVehiculo
 
 ### Uso Conjunto de Procedimientos Almacenados y Funciones 
 
-Supongamos que queremos calcular el salario anual de todos los empleados con salarios superiores a un valor específico utilizando tanto un procedimiento almacenado como una función:
+En SQL Server puede ser muy útil para crear soluciones más complejas que combinan la lógica de cálculo (funciones) con la ejecución de operaciones o tareas (procedimientos almacenados)
 
-CREATE PROCEDURE sp_calcular_salario_anual_empleados @salario_limite INT AS 
-BEGIN 
-		SELECT nombre, dbo.fn_calcular_salario_anual(salario) AS salario_anual 		 FROM empleados 
-		WHERE salario > @salario_limite; 
-END;
+Ventajas de Usar Funciones Junto con Procedimientos Almacenados:
+
+*Cálculos: Puedes encapsular cálculos complejos en funciones y luego llamarlas desde un procedimiento almacenado. Esto mejora la modularidad del código.
+
+*Optimización: Las funciones pueden optimizar las consultas al calcular previamente valores que se usen en múltiples partes del sistema.
+
+*Facilidad de uso: Las funciones pueden ser utilizadas directamente dentro de otras instrucciones SQL, como SELECT, WHERE, y JOIN, lo que facilita su uso.
 
