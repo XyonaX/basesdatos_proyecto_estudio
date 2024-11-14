@@ -1,71 +1,147 @@
 # Optimización de Consultas a través de Índices en SQL Server
+## ¿Qué son los índices en SQL Server?
+En SQL Server, los índices son estructuras que mejoran el rendimiento de las consultas al facilitar el acceso más rápido a los datos de las tablas. Funcionan de forma similar a un índice en un libro, ayudando al motor de la base de datos a ubicar rápidamente las filas en lugar de tener que leer toda la tabla. Los índices pueden reducir considerablemente los tiempos de respuesta, especialmente en tablas grandes.
 
-## ¿Qué es un índice en SQL Server?
-Un índice en SQL Server es una estructura que mejora el acceso a los datos en una tabla, funcionando como un índice en un libro, que ayuda a localizar rápidamente la información sin tener que recorrer todos los registros. Los índices son fundamentales para mejorar el rendimiento en consultas, especialmente en bases de datos grandes.
+**Un índice bien diseñado mejora:**
 
-## Tipos de Índices y sus Aplicaciones
-### Índice Agrupado (Clustered Index):
-En el índice agrupado, los datos de la tabla se almacenan físicamente en el mismo orden que el índice. Esto es útil para consultas que requieren rangos específicos de valores. Cada tabla solo puede tener un índice agrupado, ya que los datos se almacenan físicamente en un solo orden. 
-Por ejemplo, en la tabla `Vehiculos`, un índice agrupado en la columna `id_Vehiculo` permitirá buscar vehículos por sus identificadores de manera más eficiente, especialmente en operaciones de rangos.
+Velocidad de consulta: Aumenta la velocidad de búsqueda y filtrado de datos.
+Eficiencia en agrupación y ordenamiento: Mejora el rendimiento en operaciones de agrupación y ordenamiento.
+Reducción en operaciones de I/O: Minimiza el número de operaciones de entrada y salida en disco, ahorrando recursos del sistema.
 
-### Índice No Agrupado (Non-Clustered Index): 
-Un índice no agrupado se utiliza en columnas que no están directamente relacionadas con la clave primaria y pueden mejorar la velocidad de búsquedas en columnas específicas. No afecta el orden físico de los datos, almacena una copia indexada de la columna y apunta a los datos originales. Ideal para búsquedas específicas sin requerir un rango de valores amplio.
-En la tabla `Vehiculos` se puede crear un índice no agrupado en la columna `marca_Vehiculo` para acelerar la búsqueda de vehículos por marca.
+## Tipos de Índices en SQL Server
+SQL Server permite crear distintos tipos de índices, cada uno con ventajas específicas según el caso de uso:
 
-```CREATE NONCLUSTERED INDEX idx_vehiculos_marca ON Vehiculos(marca_Vehiculo);```
+**Índice Agrupado (Clustered Index):** Ordena físicamente los datos de la tabla de acuerdo con los valores de la columna clave del índice. Una tabla puede tener solo un índice agrupado.
+**Índice No Agrupado (Non-Clustered Index):** Crea una estructura separada que contiene una copia de la columna de índice y un puntero a la fila de datos en la tabla. Se pueden crear varios índices no agrupados en una tabla.
+**Índice de Cobertura (Covering Index):** El índice de cobertura es útil cuando una consulta requiere solo algunas columnas de una tabla. Incluye todas las columnas necesarias para una consulta específica. Permite a SQL Server ejecutar la consulta sin acceder a la tabla principal, lo cual optimiza considerablemente el rendimiento. En este caso, crear un índice que incluya todas las columnas necesarias para evitar acceder a la tabla directamente. 
+## Impacto de los Índices en el Rendimiento de las Consultas
+La implementación de índices puede mejorar significativamente el rendimiento de las consultas al reducir el tiempo de búsqueda y filtrado de datos. Sin embargo, los índices también requieren espacio adicional y pueden afectar el rendimiento de las operaciones de inserción, actualización y eliminación, ya que la base de datos debe actualizar los índices correspondientes.
 
-Este índice permite mejorar las consultas que filtran vehículos por marca sin alterar el orden físico de los datos.
-
-### Índice de Cobertura (Covering Index):
-El índice de cobertura es útil cuando una consulta requiere solo algunas columnas de una tabla. Incluye todas las columnas necesarias para una consulta específica. Permite a SQL Server ejecutar la consulta sin acceder a la tabla principal, lo cual optimiza considerablemente el rendimiento. En este caso, crear un índice que incluya todas las columnas necesarias para evitar acceder a la tabla directamente. 
-En la tabla `Pedido` al realizar consultas frecuentes que incluyan `fecha_Pedido`  y el `cuil_Empleado` se puede crear un índice de cobertura que incluya ambas columnas.
-
-```CREATE INDEX idx_pedido_cuil_fecha ON Pedido(fecha_Pedido) INCLUDE (cuil_Empleado);```
-
-Permite a SQL Server acceder directamente a la información desde el índice, lo que optimiza el tiempo de consulta al no tener que leer la tabla completa.
-
-
-
-## Impacto de los Índices en el Rendimiento
-Los índices mejoran la velocidad de acceso y consulta de datos, pero también ocupan espacio adicional y pueden ralentizar operaciones de escritura (inserciones, actualizaciones y eliminaciones). Por ello, es importante equilibrar el uso de índices con la frecuencia de las operaciones de escritura y el tamaño de la tabla.
-
-### Mejorando Consultas con Índices
+### Caso Práctico: Creación y Evaluación de Índices
 #### Escenario
-Imaginemos que tenemos una tabla de registros de Factura en la concesionaria, con aproximadamente un millón de registros que incluyen un campo de fecha. Realizaremos pruebas de rendimiento para observar cómo los índices impactan en el tiempo de respuesta de las consultas.
+Para este ejercicio, usaremos una tabla con un millón de registros. La tabla contendrá una columna de fecha sin índice inicial, donde realizaremos consultas de búsqueda por rango de fechas. Después, agregaremos distintos tipos de índices y mediremos el impacto en el rendimiento.
 
-#### Pasos de Optimización
-#### 1) Consulta Inicial sin Índice: 
-Ejecutamos una búsqueda de facturas por un rango de fechas y registramos el tiempo de respuesta y el plan de ejecución. Sin un índice en fecha_Factura, SQL Server realiza un escaneo completo de la tabla (table scan), lo que genera tiempos de respuesta más largos.
-``` SELECT * FROM Factura
-WHERE fecha_Factura BETWEEN '2021-01-01' AND '2021-12-31';
+#### Objetivos del Ejercicio
+Evaluar el impacto de los índices en el rendimiento de consultas: Identificar mejoras en los tiempos de respuesta y planes de ejecución.
+Comparar tiempos de respuesta con y sin índices: Verificar las diferencias de rendimiento entre diferentes configuraciones de índices.
+**Pasos**
+Carga masiva de datos en la tabla `Cliente`:
+1. Se generará una tabla de un millón de registros, que incluye una columna de tipo fecha para realizar las consultas.
+``` -- Deshabilitar restricciones de integridad referencial y constraints
+ALTER TABLE Cliente NOCHECK CONSTRAINT ALL;
+
+Script para la carga masiva de registros sobre la tabla Cliente en el campo fechaNac_Cliente (sin índice)
+
+DECLARE @i INT = 1;
+
+WHILE @i <= 1000000
+BEGIN
+    INSERT INTO Cliente (
+        nombre_Cliente, 
+        apellido_Cliente, 
+        dni_Cliente, 
+        cuil_Cliente, 
+        fechaNac_Cliente, 
+        email_Cliente, 
+        celular_Cliente, 
+        calle_Cliente, 
+        num_Calle, 
+        piso_Cliente, 
+        dpto_Cliente, 
+        codigo_PostalCliente, 
+        id_Localidad
+    )
+    VALUES (
+        'Nombre' + CAST(@i AS VARCHAR(7)),
+        'Apellido' + CAST(@i AS VARCHAR(7)),
+        RIGHT('00000000' + CAST(@i AS VARCHAR(8)), 8),
+        RIGHT('00000000000' + CAST(@i AS VARCHAR(11)), 11),
+        DATEADD(DAY, -ABS(CHECKSUM(NEWID()) % 36500), GETDATE()), -- Genera fechas de nacimiento aleatorias
+        'email' + CAST(@i AS VARCHAR(7)) + '@example.com',
+        '1234567890',
+        'Calle Ficticia',
+        FLOOR(RAND() * 1000),
+        FLOOR(RAND() * 10),
+        'A',
+        1234,
+        1 
+    );
+
+    SET @i = @i + 1;
+END;
+``` 
+2. Realizar consulta inicial sin índice: Realizamos una búsqueda por un rango de fechas y registramos el tiempo de respuesta y el plan de ejecución.
+``` 
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+
+-- Consulta sin índice
+SELECT *
+FROM Cliente
+WHERE fechaNac_Cliente BETWEEN '1990-01-01' AND '2000-12-31';
+
+SET STATISTICS TIME OFF;
+SET STATISTICS IO OFF;
+
 ```
-La consulta es más lenta porque SQL Server debe leer todos los registros uno por uno al no contar con un índice que optimice la búsqueda.
 
-#### 2) Definición de un Índice Agrupado: 
-Definimos un índice agrupado en la columna fecha_Factura, ejecutamos nuevamente la consulta y registramos el plan de ejecución y el tiempo de respuesta.
+3. Crear índice agrupado en la columna de fecha: Añadimos un índice agrupado en la columna de fecha y repetimos la consulta para medir las diferencias.
+``` 
+-- eliminar la restricción de clave primaria asociada al índice PK_Cliente
+ALTER TABLE Cliente
+DROP CONSTRAINT PK_Cliente;
 
-``` CREATE CLUSTERED INDEX idx_factura_fecha ON Factura(fecha_Factura);```.
+-- Crear el nuevo índice clúster sobre fechaNac_Cliente
+CREATE CLUSTERED INDEX IX_Cliente_FechaNac ON Cliente(fechaNac_Cliente);
 
-**Impacto:** Al ordenar los datos por fecha_Factura, SQL Server puede realizar una búsqueda optimizada (seek) y acceder rápidamente a los registros en el rango deseado.
-**Eliminación del Índice Agrupado:** Si ya no es necesario optimizar las consultas por fecha_Factura, o si se priorizan las operaciones de escritura, podemos eliminar el índice agrupado:
+-- Consulta con índice agrupado
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
 
-```DROP INDEX idx_factura_fecha ON Factura;```.
+SELECT *
+FROM Cliente
+WHERE fechaNac_Cliente BETWEEN '1990-01-01' AND '2000-12-31';
 
-**Cuándo es útil eliminar un índice:** Si el índice no se usa frecuentemente y está afectando el rendimiento de inserciones y actualizaciones.
+SET STATISTICS TIME OFF;
+SET STATISTICS IO OFF;
+```
 
-#### Definición de un Índice de Cobertura: 
-Creamos un índice de cobertura en la tabla Pedido que incluya tanto fecha_Pedido como cuil_Empleado y id_Cliente, columnas utilizadas en consultas habituales.
+4.  Borrar el índice creado
+```
+DROP INDEX IX_Cliente_FechaNac ON Cliente;
+```
+5. Crear indice no agrupado de cobertura y repetimos la consulta para medir las diferencias.
+```
+-- Crear un índice no clúster 
+CREATE NONCLUSTERED INDEX IX_Cliente_FechaNac_Cubierto
+ON Cliente(fechaNac_Cliente)
+INCLUDE (nombre_Cliente, apellido_Cliente, dni_Cliente, cuil_Cliente);
 
-```CREATE INDEX idx_pedido_cuil_fecha ON Pedido(fecha_Pedido) INCLUDE (cuil_Empleado, id_Cliente);```
+-- Consulta con índice no clúster cubierto
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
 
-**Ventaja:** Permite que SQL Server obtenga los datos necesarios directamente desde el índice, evitando acceder a la tabla Pedido, lo cual mejora el rendimiento.
-**Resultados Esperados**
-**Consulta sin Índice:** La consulta es lenta debido al escaneo completo de la tabla.
-**Con Índice Agrupado:** Mejora considerablemente el tiempo de respuesta debido al ordenamiento por la columna indexada.
-**Con Índice de Cobertura:** La consulta alcanza su mayor eficiencia al acceder a todas las columnas necesarias desde el índice, sin necesidad de leer directamente de la tabla.
-### Ventajas de la Optimización con Índices
-**Reducción de Tiempo de Consulta:** Los índices permiten un acceso rápido a los datos necesarios, mejorando la velocidad de respuesta.
-**Menor Carga en el Sistema:** Al reducir el tiempo de búsqueda, se disminuye la carga de procesamiento.
-**Flexibilidad en Consultas Complejas:** Los índices de cobertura son útiles en consultas que requieren varias columnas, optimizando el acceso directo a la información.
-### Conclusión
-El uso adecuado de índices en SQL Server es una práctica fundamental para optimizar el rendimiento de consultas en bases de datos grandes. En la base de datos de la concesionaria "Agmagest", los índices agrupados y de cobertura se configuran como herramientas poderosas para acceder de forma eficiente a la información, mejorando la velocidad de las consultas sin comprometer significativamente la eficiencia en operaciones de escritura.
+-- Ejecutar la consulta que utilizará el índice cubierto
+SELECT nombre_Cliente, apellido_Cliente, dni_Cliente, cuil_Cliente
+FROM Cliente
+WHERE fechaNac_Cliente = '1980-01-01';  -- Ejemplo de consulta
+
+SET STATISTICS TIME OFF;
+SET STATISTICS IO OFF;
+```
+
+### Resultados Obtenidos
+**Consulta sin índice:** Se evaluó que la consulta inicial sin índice tuvo un tiempo de respuesta elevado debido a la búsqueda en toda la tabla.
+**Con índice agrupado:** El tiempo de respuesta mejoro significativamente, ya que los datos están ordenados físicamente por la columna de fecha.
+**Índice no agrupado de cobertura** Muestra un rendimiento mejorado, ya que filtra la consulta por una fecha y sus filas fueron menores.
+
+### Análisis de Resultados
+**Medición de tiempos de respuesta:** Comparamos los tiempos de respuesta obtenidos en cada escenario para observar las mejoras.
+**Análisis del plan de ejecución:** Evaluamos los planes de ejecución para identificar si se usaron los índices en cada consulta y entender cómo afectaron el rendimiento.
+
+## Conclusiones
+Implementar índices en SQL Server puede mejorar significativamente el rendimiento de las consultas en tablas grandes. Sin embargo, el tipo de índice seleccionado y su configuración deben estar alineados con los requisitos de consulta y las necesidades de mantenimiento de la base de datos. Un índice agrupado es ideal para ordenar datos en consultas de rangos, mientras que un índice no agrupado con columnas incluidas puede ser útil en situaciones de consultas con múltiples columnas.
+
+Fuentes
+[SQL Server - Documentación Oficial ](https://learn.microsoft.com/es-es/sql/sql-server/?view=sql-server-ver16)
+[Optimización de consultas con índices](https://learn.microsoft.com/es-es/sql/relational-databases/indexes/reorganize-and-rebuild-indexes?view=sql-server-ver16)
