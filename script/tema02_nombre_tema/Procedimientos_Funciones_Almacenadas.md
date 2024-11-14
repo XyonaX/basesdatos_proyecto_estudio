@@ -48,6 +48,7 @@ Posteriormente, pueden ser usadas invocándolas en una expresión, como cualquie
 Para indicar una base de datos, debemos especificarla junto al nombre de la función al momento de crearla: nombre_bd.nombre_func. 
 
 Para crear una nueva función, debemos utilizar la sentencia CREATE FUNCTION, cuya sintaxis simplificada es la siguiente: 
+
 1 CREATE FUNCTION < nombre >  ( parámetros )
 2 RETURNS < tipo >  
 3  < cuerpo de la función >
@@ -66,25 +67,23 @@ Para crear una nueva función, debemos utilizar la sentencia CREATE FUNCTION, cu
 ### Cómo usar una función almacenada
 
  Una vez creada la función, puede ser utilizada directamente en cualquier consulta. Ejemplo: consulta sobre la tabla productos de la base de datos base_ejemplo: 
+ 
  SELECT *, @PrecioPromedio = AVG(precio_Vehiculo) AS promedio FROM Vehiculos;
 
 ### Cómo borrar una función almacenada 
 
 Puedes borrar una función almacenada haciendo uso de la sentencia DROP FUNCTION. Por ejemplo, si quieres eliminar la función calcularBeneficio del ejemplo anterior, tendrás que ejecutar esta sentencia: 
- DROP FUNCTION calcularBeneficio;
 
-### Cómo modificar
+ DROP FUNCTION buscar_vehiculo;
 
-**ALTER COLUMN**  dentro de una sentencia  **ALTER TABLE**  permite modificar las columnas de una tabla.
+### Cómo modificar una funa funcion
 
-ALTER TABLE nombreTabla ALTER COLUMN nombreColumna  tipoDato
-
-
-### Modificar columnas (ALTER COLUMN)
-
-La sentencia sigue la siguiente sintaxis:
-
-
+ALTER FUNCTION fn_PrecioPromedioPorTipo
+    (@IdTipoVehiculo INT)
+< cuerpo_de_la_funcion >
+SELECT *, @PrecioPromedio = AVG(precio_Vehiculo) AS promedio FROM Vehiculos
+WHERE id_tipoVehiculo = @IdTipoVehiculo
+      AND precio_Vehiculo >= 22.000;
 
 
 ### Uso Conjunto de Procedimientos Almacenados y Funciones 
