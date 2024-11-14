@@ -106,9 +106,14 @@ Acceso al documento [PDF](doc/diccionario_datos.pdf) del diccionario de datos.
 
 
 > Acceder a la siguiente carpeta para la descripción completa del script [scripts](script/script_ddl_proyecto.sql)
+
 > Acceder a la siguiente carpeta para el script del lote de datos [scripts](script/script_insert_proyecto.sql)
+
 > [Manejo de permisos a nivel de usuarios de base de datos](script/tema01_Manejo_de_permisos_a_nivel_de_usuarios/tema_Manejo_de_permisos_a_nivel_de_usuarios_de_base_de_datos.md) 
+
 > [Procedimientos y funciones almacenadas](script/tema02_Procedimientos_y_funciones_almacenadas/Procedimientos_Funciones_Almacenadas.md)
-> [Optimización de consultas a través de índices](script/tema03_Optimizacion_de_consultas_a_traves_de indices/optimizacion_de_consultas_a_traves_de_indices.md)
+
+> [Optimización de consultas a través de índices](script/tema03_Optimizacion_de_consultas_a_traves_de_indices/optimizacion_de_consultas_a_traves_de_indices.md)
+
 > [Manejo de transacciones y transacciones anidadas](script/tema04_Manejo_de_transacciones_y_transacciones_anidadas/manejo_de_transacciones_y_transacciones_anidadas.md)
 
