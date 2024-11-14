@@ -1,71 +1,93 @@
-
 USE StoredOps
 
 /*
-							**PROYECTO**
+				**PROYECTO**
 			Tema: Procedimientos y funciones almacenadas
 -----------------------------------------------------------------------------
 
 				Procedimientos almacenados: 
 */
+----Crear un procedimiento 
 
-------------FUNCION INSERTAR
+	CREATE PROCEDURE mostrar_paises
+as 
+BEGIN 
+	SELECT * FROM Pais; 
+END
 
---insercion de datos en la tabla PAIS 
---id -> identity 
+	---EJECUTAR
+EXEC mostrar_paises;
 
-insert into Pais ( nombre_pais) values ( 'Argentina'), ('Uruguay'), ('Brasil') ; 
+---------------------------------------
+
+
+CREATE PROCEDURE buscar_vehiculo
+	@NombreBuscar VARCHAR(50),
+    @Precio DECIMAL(8, 2)
+AS --palabra clave 
+BEGIN 
+	   SET NOCOUNT ON;	--ayuda a suprimir mensajes innecesarios sobre el número de filas afectadas
+		SELECT * FROM Vehiculos WHERE   modelo_Vehiculo LIKE '%' + @NombreBuscar + '%' AND precio_Vehiculo <= @Precio;
+	END
+
+--Ejecuta un procedimiento almacenado
+EXEC buscar_vehiculo 'Ecosport', 28000;
+
+select * from Vehiculos
+--------------------------------------------------------
+
+---------------- Funciones almacenadas 
+
+ CREATE FUNCTION dbo.PrecioPromedioPorTipo (
+    @idTipoVehiculo INT  -- Parámetro de entrada: id del tipo de vehículo
+)
+RETURNS FLOAT  -- retorno: el precio promedio
+AS
+BEGIN
+    DECLARE @PrecioPromedio FLOAT;  
+    -- Calcular el precio promedio de los vehículos del tipo especificado
+    SELECT @PrecioPromedio = AVG(precio_Vehiculo)
+    FROM Vehiculos
+    WHERE id_tipoVehiculo = @idTipoVehiculo; 
+    -- Devuelve el precio promedio
+    RETURN @PrecioPromedio;
+END;
+
+--PARA EJECUTAR
+----- Ejemplo: obtener el precio promedio para el Tipo de vehículo con id = 2 -ECOSPORT
+SELECT dbo.PrecioPromedioPorTipo(2) AS PrecioPromedio; 
+
+select * from Vehiculos
+
+
+CREATE FUNCTION existe_pais (
+    @nombre_pais VARCHAR(50)
+)
+RETURNS INT --- devuelve entero
+AS
+BEGIN
+    DECLARE @existe INT;
+
+    -- Verificar si el país existe en la tabla
+    IF EXISTS (SELECT 1 FROM Pais WHERE nombre_Pais = @nombre_pais)
+    BEGIN
+        SET @existe = 1;  --  existe
+    END
+    ELSE
+    BEGIN
+        SET @existe = 0;  -- no existe
+    END
+
+    -- Devolver el resultado
+    RETURN @existe;
+END
+
+-- Verificar si el país 'Argentina' existe en la tabla
+SELECT dbo.existe_pais('Argentina') AS PaisExiste; --- 1 
+SELECT dbo.existe_pais('Estados Unidos') AS PaisExiste; --- 0 
 
 select * from Pais
 
------------MODIFICAR 
---- se modifica la tabla Estado_Pago
-----se elimina el nombre del estado del pago, quedando solo su ID  (numero de identifiacion de Estado ) 
-
-
-alter table Estado_Pago
-	drop column nombre_EstadoPago; 
-
-
------------BORRAR
-
-----accion de borrar una Tabla de la base de datos 
---en este caso las tablas no se pueden borrar ya que funciona como FOREIGN KEY
-
-drop table  Estado_Pago
-
-drop table  Estado_Factura
-
-
-
---		**Funciones Almacenadas** 
-
-----Funcion contar empleados 
-select count(*) from Empleado
-
-
-----Funcion mostrar empleados mayores a 20 años 
-select c.cuil_Empleado, c.fechaNac_Empleado
-from Empleado c 
-where (DATEDIFF (year, fechaNac_Empleado, getdate() ) >= 20)
-
-
-----Funcion mostrar el cliente y su estado 
-
-select c.id_Cliente, cd.id_Estado_Cliente, cd.nombre_EstadoCliente
-from Cliente c
-inner join Estado_Cliente cd on c.id_Estado_Cliente = cd.id_Estado_Cliente
-where c.id_Cliente = 5
-
-
--- Eficiencia de las operaciones directas versus el uso de procedimientos y funciones
-
-/*Operaciones Directas: Ejecutar consultas directamente en SQL sin encapsularlas en procedimientos o funciones almacenadas.
-
--Procedimientos Almacenados: Código SQL precompilado que se almacena y ejecuta en el servidor. Son útiles para operaciones complejas o repetitivas.
-
--Funciones Almacenadas: Devuelven un solo valor o una tabla. Se usan para cálculos específicos que pueden ser reutilizados en diferentes partes del código.
-*/
 
 
 
