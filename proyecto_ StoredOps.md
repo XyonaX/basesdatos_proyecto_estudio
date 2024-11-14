@@ -24,19 +24,16 @@
 
 
 
-1. [CAPÍTULO I: INTRODUCCIÓN](#capítulo-i-introducción)
+1. [Capítulo-I:-Introducción](#Capítulo-I:-Introducción)
+      
+   1.1 [Introducción](#Introducción)
+   1.2 [Alcance del proyecto](#alcance-del-proyecto)
+   1.3 [Objetivo General](#objetivo-general)
+   1.4 [Objetivos Específicos](#objetivos-específicos)
    
-   1.1 [Procedimientos y funciones almacenadas](#procedimientos-y-funciones-almacenadas)
-   
-   1.2 [Problema de Investigación](#problema-de-investigación)
-   
-   1.3 [Alcance del proyecto](#alcance-del-proyecto)
-   
-   1.4 [Objetivo General](#objetivo-general)
-   
-   1.5 [Objetivos Específicos](#objetivos-específicos)
-
-4. [CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS](#capítulo-iv-desarrollo-del-tema--presentación-de-resultados)
+2. [Capítulo II Marco Conceptual ](#Capítulo-II-Marco-Conceptual )
+3. [Capítulo III: Metodología seguida ](#Capítulo-III:-Metodología-seguida)
+4. [Capítulo IV: Desarrollo de temas / Presentación de resultados](#Capítulo-IV:-Desarrollo-de-temas/-Presentación-de-resultados)
 
    4.1 [Diagrama relacional](#diagrama-relacional)
    
@@ -44,10 +41,12 @@
    
    4.3 [Acceso al script del proyecto](#acceso-al-script-del-proyecto)
 
+5. [Capítulo V: Conclusiones](#Capítulo-V:-Conclusiones)
+6. [Capítulo VI: Bibliografía](#Capítulo-VI:-Bibliografía)
+
 ## CAPÍTULO I: INTRODUCCIÓN
 
-### Procedimientos y funciones almacenadas
-
+### Introducción
 La gestión eficiente de la información es esencial para las concesionarias de vehículos, donde se manejan grandes volúmenes de datos relacionados con clientes, empleados, vehículos, pedidos y ventas. La dependencia de procesos manuales o sistemas no integrados genera errores, duplicación de datos y dificultades en el acceso a información clave, afectando la operación diaria. Este Trabajo Práctico propone el diseño e implementación de una base de datos relacional en SQL Server, que permita centralizar y optimizar la administración de la información, garantizando seguridad mediante roles y permisos, mejorando el rendimiento de consultas y transacciones, y asegurando la integridad de los datos. El proyecto busca responder a las necesidades inmediatas de la concesionaria, sentando las bases para una gestión más eficaz y escalable.
 
 ### Problema de Investigación
@@ -93,9 +92,7 @@ Durante la implementación, se presentaron algunas dificultades en la configurac
 3. Pruebas de Rendimiento: Se realizaron pruebas antes y después de la creación de índices para medir los tiempos de respuesta en consultas, lo cual permitió evaluar la efectividad de los índices. 
 4. Método de Revisión Bibliográfica: La consulta de documentación oficial y guías sobre SQL Server fue fundamental para comprender las mejores prácticas y aplicarlas correctamente en cada etapa del proyecto.
 
-## CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
-
-Maecenas molestie lacus tincidunt, placerat dolor et, ullamcorper erat. Mauris tortor nisl, ultricies ac scelerisque nec, feugiat in nibh. Pellentesque interdum aliquam magna sit amet rutrum. 
+## Capítulo IV: Desarrollo de temas / Presentación de resultados
 
 ### Diagrama relacional
 ![diagrama_relacional](https://github.com/XyonaX/basesdatos_proyecto_estudio/blob/main/doc/esquema_relacional.jpeg)
@@ -119,3 +116,16 @@ Acceso al documento [PDF](doc/diccionario_datos.pdf) del diccionario de datos.
 
 > [Manejo de transacciones y transacciones anidadas](script/tema04_Manejo_de_transacciones_y_transacciones_anidadas/manejo_de_transacciones_y_transacciones_anidadas.md)
 
+# Capítulo V: Conclusiones
+
+**Manejo de transacciones y transacciones anidadas**: El manejo de permisos en SQL Server es una herramienta poderosa para proteger la integridad y confidencialidad de los datos. Implementar permisos adecuados según las necesidades garantiza que cada usuario solo pueda realizar las acciones necesarias para su rol, evitando riesgos innecesarios mejora la eficiencia operativa.
+
+**Procedimientos y funciones almacenadas:**  Transacciones y transacciones anidadas: Las transacciones en SQL Server son fundamentales para garantizar la integridad, consistencia y confiabilidad de los datos en sistemas de bases de datos. Mediante el uso de transacciones, es posible agrupar una serie de operaciones de forma que se ejecuten en su totalidad o se reviertan en caso de error, cumpliendo con los principios de atomicidad y consistencia. Este enfoque minimiza el riesgo de datos incompletos o inconsistentes, proporcionando una estructura clara para el control de errores y la recuperación.
+
+**Optimización de Consultas a través de Índices en SQL Server:** Implementar índices en SQL Server puede mejorar significativamente el rendimiento de las consultas en tablas grandes. Sin embargo, el tipo de índice seleccionado y su configuración deben estar alineados con los requisitos de consulta y las necesidades de mantenimiento de la base de datos. Un índice agrupado es ideal para ordenar datos en consultas de rangos, mientras que un índice no agrupado con columnas incluidas puede ser útil en situaciones de consultas con múltiples columnas.
+
+**Optimización de Consultas a través de Índices en SQL Server:** Implementar índices en SQL Server puede mejorar significativamente el rendimiento de las consultas en tablas grandes. Sin embargo, el tipo de índice seleccionado y su configuración deben estar alineados con los requisitos de consulta y las necesidades de mantenimiento de la base de datos. Un índice agrupado es ideal para ordenar datos en consultas de rangos, mientras que un índice no agrupado con columnas incluidas puede ser útil en situaciones de consultas con múltiples columnas.
+
+# Capítulo VI. Bibliografía.
+
+[1] Microsoft. “SQL Server Documentation”. 2023. [Online]. Available: [https://learn.microsoft.com/es-es/sql/sql-server/?view=sql-server-ver16](https://learn.microsoft.com/es-es/sql/sql-server/?view=sql-server-ver16)
