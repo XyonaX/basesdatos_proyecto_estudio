@@ -12,17 +12,21 @@ Los procedimientos almacenados en MySQL son secuencias de comandos o bloques de 
 
 Crea un procedimiento almacenado:
 
-CREATE PROCEDURE sp_mostrar_registros() 
+CREATE PROCEDURE mostrar_paises
+AS 
 BEGIN 
-	SELECT * FROM tabla; 
+	SELECT * FROM Pais; 
 END
 
 Parámetros en procedimientos almacenados
 
-CREATE PROCEDURE sp_buscar_producto(IN nombre VARCHAR(50), 
-IN precio DECIMAL(8,2)) 
+CREATE PROCEDURE buscar_vehiculo
+	@NombreBuscar VARCHAR(50),
+        @Precio DECIMAL(8, 2)
+AS --palabra clave 
 BEGIN 
-		SELECT * FROM productos WHERE nombre LIKE CONCAT('%', nombre, '%') AND precio <= precio; 
+	   SET NOCOUNT ON;	--ayuda a suprimir mensajes innecesarios sobre el número de filas afectadas
+		SELECT * FROM Vehiculos WHERE   modelo_Vehiculo LIKE '%' + @NombreBuscar + '%' AND precio_Vehiculo <= @Precio;
 	END
 
 **Ventajas**
@@ -44,8 +48,8 @@ Posteriormente, pueden ser usadas invocándolas en una expresión, como cualquie
 Para indicar una base de datos, debemos especificarla junto al nombre de la función al momento de crearla: nombre_bd.nombre_func. 
 
 Para crear una nueva función, debemos utilizar la sentencia CREATE FUNCTION, cuya sintaxis simplificada es la siguiente: 
-1 CREATE FUNCTION [IF NOT EXISTS] < nombre >  ( [parámetros ])
-2 RETURNS < tipo >  [ < característica >]
+1 CREATE FUNCTION < nombre >  ( parámetros )
+2 RETURNS < tipo >  
 3  < cuerpo de la función >
 4 RETURN  < valor > ; 
 
@@ -62,7 +66,7 @@ Para crear una nueva función, debemos utilizar la sentencia CREATE FUNCTION, cu
 ### Cómo usar una función almacenada
 
  Una vez creada la función, puede ser utilizada directamente en cualquier consulta. Ejemplo: consulta sobre la tabla productos de la base de datos base_ejemplo: 
- SELECT *, calcularBeneficio(coste, precio) AS beneficio FROM productos;
+ SELECT *, @PrecioPromedio = AVG(precio_Vehiculo) AS promedio FROM Vehiculos;
 
 ### Cómo borrar una función almacenada 
 
