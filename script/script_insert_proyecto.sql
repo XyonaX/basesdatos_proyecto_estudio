@@ -6,7 +6,6 @@ USE StoredOps
 --- LOTE DE DATOS ---
 ---------------------
 --Paises
-SET LANGUAGE Español
 INSERT INTO Pais(nombre_Pais) 
 VALUES 
 	('Argentina'),
