@@ -21,31 +21,27 @@
 
 **Año**: 2024
 
+
 # Índice
 
+1. [Capítulo I: Introducción](#capítulo-i-introducción)  
+   1.1 [Introducción](#introducción)  
+   1.2 [Alcance del proyecto](#alcance-del-proyecto)  
+   1.3 [Objetivo General](#objetivo-general)  
+   1.4 [Objetivos Específicos](#objetivos-específicos)  
 
+2. [Capítulo II: Marco Conceptual](#capítulo-ii-marco-conceptual)  
 
-1. [Capítulo I: Introducción](#Capítulo-I:-Introducción)
-      
-   1.1 [Introducción](#Introducción)  
-   1.2 [Alcance del proyecto](#alcance-del-proyecto)   
-   1.3 [Objetivo General](#objetivo-general)   
-   1.4 [Objetivos Específicos](#objetivos-específicos)   
-   
-2. [Capítulo II: Marco Conceptual ](#Capítulo-II-Marco-Conceptual )
+3. [Capítulo III: Metodología seguida](#capítulo-iii-metodología-seguida)  
 
-3. [Capítulo III: Metodología seguida ](#Capítulo-III:-Metodología-seguida)
+4. [Capítulo IV: Desarrollo de temas / Presentación de resultados](#capítulo-iv-desarrollo-de-temas--presentación-de-resultados)  
+   4.1 [Diagrama relacional](#diagrama-relacional)  
+   4.2 [Diccionario de datos](#diccionario-de-datos)  
+   4.3 [Acceso al script del proyecto](#acceso-al-script-del-proyecto)  
 
-4. [Capítulo IV: Desarrollo de temas / Presentación de resultados](#Capítulo-IV:-Desarrollo-de-temas/-Presentación-de-resultados)
+5. [Capítulo V: Conclusiones](#capítulo-v-conclusiones)  
 
-   4.1 [Diagrama relacional](#diagrama-relacional)
-   
-   4.2 [Diccionario de datos](#diccionario-de-datos)
-   
-   4.3 [Acceso al script del proyecto](#acceso-al-script-del-proyecto)
-
-5. [Capítulo V: Conclusiones](#Capítulo-V:-Conclusiones)
-6. [Capítulo VI: Bibliografía](#Capítulo-VI:-Bibliografía)
+6. [Capítulo VI: Bibliografía](#capítulo-vi-bibliografía)
 
 ## CAPÍTULO I: INTRODUCCIÓN
 
