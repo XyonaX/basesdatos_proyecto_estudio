@@ -124,7 +124,7 @@ SET STATISTICS IO ON;
 -- Ejecutar la consulta que utilizará el índice cubierto
 SELECT nombre_Cliente, apellido_Cliente, dni_Cliente, cuil_Cliente
 FROM Cliente
-WHERE fechaNac_Cliente = '1980-01-01';  -- Ejemplo de consulta
+WHERE fechaNac_Cliente BETWEEN '1990-01-01' AND '2000-12-31';
 
 SET STATISTICS TIME OFF;
 SET STATISTICS IO OFF;
