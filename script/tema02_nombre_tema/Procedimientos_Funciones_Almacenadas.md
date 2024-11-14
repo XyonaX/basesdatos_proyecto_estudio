@@ -23,11 +23,15 @@ Parámetros en procedimientos almacenados
 CREATE PROCEDURE buscar_vehiculo
 	@NombreBuscar VARCHAR(50),
         @Precio DECIMAL(8, 2)
+	
 AS --palabra clave 
+
 BEGIN 
-	   SET NOCOUNT ON;	--ayuda a suprimir mensajes innecesarios sobre el número de filas afectadas
-		SELECT * FROM Vehiculos WHERE   modelo_Vehiculo LIKE '%' + @NombreBuscar + '%' AND precio_Vehiculo <= @Precio;
-	END
+
+ SET NOCOUNT ON; 	--ayuda a suprimir mensajes innecesarios sobre el número de filas afectadas
+SELECT * FROM Vehiculos WHERE  modelo_Vehiculo LIKE '%' + @NombreBuscar + '%' AND precio_Vehiculo <= @Precio;
+
+END; 
 
 **Ventajas**
 
