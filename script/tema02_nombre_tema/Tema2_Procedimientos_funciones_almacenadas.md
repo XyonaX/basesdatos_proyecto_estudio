@@ -24,8 +24,11 @@ END
 
 Ventajas 
 	Modularidad y reutilización de código: Los procedimientos almacenados permiten agrupar instrucciones SQL relacionadas en una unidad lógica, lo que facilita su reutilización en diferentes partes de una aplicación. 
+
 	Mejor rendimiento: Al ejecutarse en el servidor de la base de datos, los procedimientos almacenados evitan la necesidad de enviar múltiples consultas desde la aplicación cliente. Esto reduce el tráfico de red y mejora el rendimiento general de la aplicación.
+
 	Seguridad: Los procedimientos almacenados pueden ser utilizados para controlar el acceso a los datos y aplicar reglas de seguridad específicas. Los permisos de ejecución de los procedimientos almacenados pueden ser asignados a roles de usuario, lo que proporciona un nivel adicional de seguridad.
+
 	Reducción de errores: Al encapsular la lógica de programación en procedimientos almacenados, se reduce la posibilidad de cometer errores en la aplicación. Los procedimientos almacenados son probados y depurados una vez, y luego pueden ser utilizados por múltiples aplicaciones sin necesidad de modificar el código fuente.
 
 ¿Qué son las funciones almacenadas?
