@@ -112,7 +112,7 @@ INSERT INTO Cliente (email_Cliente, celular_Cliente, calle_Cliente, num_Calle, p
 VALUES ('otro_cliente@example.com', '0987654321', 'Calle Nueva', 456, 2, 'B', 5678, 1, 1); -- Espera un error de permisos
 ```
 
-### Resultados Esperados
+### Resultados obtenidos
 **Administrador**:
 Tiene control total sobre la base de datos.
 Puede crear, modificar y consultar cualquier dato.
